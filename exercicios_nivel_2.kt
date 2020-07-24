@@ -72,10 +72,10 @@ if(numero%2 == 0) { // Se o número contido na variável parOuImpar, ao ser divi
 // 4 - Desenvolva um algoritmo que calcule o IMC de uma pessoa, imprima o valor do IMC e sua classificação
 
 //Versão sem função:
-var peso = 70
-var altura = 1.70
-var imc = peso/(altura*altura)
-println("Seu imc é ${Math.round(imc)}")
+var peso = 70 // Variável que recebe o peso
+var altura = 1.70 // Variável que recebe a altura
+var imc = peso/(altura*altura) // Declaração da variável que recebe o imc, com base nas variáveis peso e altura
+println("Seu imc é ${Math.round(imc)}") // Imprime o valor do imc, arredondando
 
 //versão com função:
 
@@ -111,39 +111,53 @@ fun tabuada(n : Int) { // O parâmetro -n- recebe o valor a ser gerada a tabuada
 
 //Versão sem função:
 
-var palavraVogal = "amor"
-var contadorVogais = 0
-for(letra in palavraVogal) {
-    if(
-        letra == 'a' ||
-        letra == 'e' ||
-        letra == 'i' ||
-        letra == 'o' ||
-        letra == 'u'){
-            contadorVogais++
+var palavraVogal = "amor" // Declaração de uma variável tipo String, contendo a palavra a ser analisada
+var contadorVogais = 0 // Declaração de um contador para acumular o total de vogais
+for(letra in palavraVogal) { // Para cada letra da String contida na variável palavraVogal
+    if( // Se
+        letra == 'a' || // letra for igual a 'a' ou
+        letra == 'e' || // letra for igual a 'e' ou
+        letra == 'i' || // letra for igual a 'i' ou
+        letra == 'o' || // letra for igual a 'o' ou
+        letra == 'u'){  // letra for igual a 'u'
+            contadorVogais++ // O contador receberá o valor atual, mais 1
         }
+
+        /* Quando fazemos um for para percorrer uma palavra, ele cria uma variável do tipo caractere (Char),
+        que nosso caso foi definida com o nome de -letra-, portanto, precisamos fazer a comparação
+        utilizando aspas simples, e não duplas.
+        
+        Ex.: (letra == 'a') 'a' é um Char
+             (letra == "a") "a" é uma String
+
+        Não é possível comparar dois valores de tipos diferentes */
 }
-println("A palavra $palavraVogal possui $contadorVogais vogais")
+println("A palavra $palavraVogal possui $contadorVogais vogais") // Imprime a palavra e a quantidade de vogais
 
 
 //Versão com função:
 
-fun contarVogais(aPalavra : String) : Int {
+fun contarVogais(aPalavra : String) : Int { // Função que recebe como parâmetro a palavra a ser analisada
     val vogais = arrayListOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
-    var contadorVogais = 0
-    for(letra in aPalavra) {
+    // Declaração de um arraycom as vogais, maiúsculas e minúsculas
+    
+    var contadorVogais = 0 // Contador que receberá o total de vogais
+    for(letra in aPalavra) { // A cada letra da palavra
         
-    	if(vogais.indexOf(letra)>=0) {
-    		contadorVogais++
+    	if(vogais.indexOf(letra)>=0) { // O indexOf, retornará a posição da letra no array -vogais-
+        // Caso não exista a letra no array, o indexOf retornará -1, caso ele seja igual ou maior que 0, é vogal
+    		contadorVogais++ // e o contador receberá +1
     	}
         
 	}
-    return contadorVogais
+    return contadorVogais // Retorna o total de vogais
 }
 
 // Exemplo de uso da função contarVogais:
     var tal = "Amor"
     println("A palavra $tal tem ${contarVogais(tal)} vogais")
+    /* Utilizando uma Template String para chamar a função contarVogais,
+    que retornará para a String a ser impresa o valor contido na variável -tal-*/
 
 //-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 }
